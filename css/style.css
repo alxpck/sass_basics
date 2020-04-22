@@ -23,6 +23,21 @@ ul {
   margin: 0;
 }
 
+p {
+  margin-bottom: 1.25em;
+}
+.intro p {
+  font-size: 1.2em;
+}
+
+a {
+  color: #278da4;
+  text-decoration: none;
+}
+a:hover {
+  color: #b13c69;
+}
+
 /* HEADER & FOOTER ----------------------------------------- */
 header {
   height: 460px;
@@ -30,7 +45,6 @@ header {
   background-blend-mode: multiply;
   background-size: cover;
 }
-
 header h1 {
   color: #fff;
   font-size: 4.8em;
@@ -65,6 +79,17 @@ footer {
 .main-nav {
   margin-top: 1em;
 }
+.main-nav li {
+  display: inline-block;
+  margin: 0 0.65em;
+}
+.main-nav a {
+  color: #fff;
+  font-size: 0.85em;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0.5em;
+}
 
 .card {
   display: flex;
@@ -73,22 +98,29 @@ footer {
   border: 1px solid #eee;
   border-radius: 0.25em;
 }
-
 .card h1 {
-  color: #278da4;
   margin: 0.35em 0 0;
   line-height: 1.25;
 }
+.card .icon, .card h1 {
+  color: #278da4;
+}
 
-.btn-info {
+.btn {
   color: #fff;
   display: inline-block;
-  font-size: 0.85em;
   font-weight: bold;
   text-decoration: none;
   text-transform: uppercase;
   padding: 0.75em 1.5em;
   border-radius: 0.35em;
+}
+.btn-callout {
+  font-size: 1.1em;
+  background-color: #b13c69;
+}
+.btn-info {
+  font-size: 0.85em;
   background-color: #278da4;
   margin-top: auto;
 }
