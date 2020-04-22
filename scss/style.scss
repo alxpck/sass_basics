@@ -1,6 +1,12 @@
+$white: #fff;
+
 $color-primary: #278da4;
 $color-secondary: #b13c69;
 $color-accent: #eeea72;
+$color-shade: #eee;
+$color-text: #343434;
+$color-bg: #3acec2;
+$color-bg-light: #009fe1;
 
 $font-stack-primary: 'Raleway', sans-serif;
 $font-stack-secondary: 'Bree Serif', serif;
@@ -15,7 +21,7 @@ $font-stack-secondary: 'Bree Serif', serif;
 }
 
 body {
-  color: #343434;
+  color: $color-text;
   font-size: 1rem;
   line-height: 1.5;
   font-family: $font-stack-primary;
@@ -38,14 +44,14 @@ ul {
 
 header {
   height: 460px;
-  background: linear-gradient(#009fe1, #3acec2),
+  background: linear-gradient($color-bg, $color-bg-light),
               url('../img/bg.jpg') no-repeat;
   background-blend-mode: multiply;
   background-size: cover;
 }
 
 header h1 {
-  color: #fff;
+  color: $white;
   font-size: 4.8em;
   margin-bottom: 0;
   letter-spacing: 1px;
@@ -60,7 +66,7 @@ header p {
 footer {
   padding: 2em 0 0;
   height: 100px;
-  background-color: #eee;
+  background-color: $color-shade;
   margin-top: 3.5em;
 }
 
@@ -85,7 +91,7 @@ footer {
   display: flex;
   flex-direction: column;
   padding: 1.5em 1em;
-  border: 1px solid #eee;
+  border: 1px solid $color-shade;
   border-radius: .25em;
 }
 
@@ -96,7 +102,7 @@ footer {
 }
 
 .btn-info {
-  color: #fff;
+  color: $white;
   display: inline-block;
   font-size: 0.85em;
   font-weight: bold;
