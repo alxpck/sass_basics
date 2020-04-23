@@ -155,3 +155,105 @@ header {
     }
 }
 ```
+
+# Extend the properties of selectors
+Use `@extend` to take an existing set of rules for a selector, and build upon them. 
+
+e.g. 
+```
+.btn {
+    color: $white;
+    display: inline-block;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 0.75em 1.5em;
+    border-radius: 0.35em;
+}
+
+.btn-callout {
+    @extend .btn;
+    font-size: 1.1em;
+    background-color: $color-secondary;
+}
+```
+
+
+Use placeholder selector to mark something as a rule block that will be extended, but which won't be output when not extended. 
+
+e.g. `%btn {}` vs. `.btn {}`
+
+We can further streamline the code by using nested selectors on top of placeholders and extensions. 
+
+e.g. 
+```
+%btn {
+    color: $white;
+    display: inline-block;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 0.75em 1.5em;
+    border-radius: 0.35em;
+}
+
+.btn {
+    @extend %btn;
+    &-callout {
+        font-size: 1.1em;
+        background-color: $color-secondary;
+    }
+    &-info {
+        font-size 0.85em;
+        background-color: $color-primary;
+    } 
+}
+```
+
+Placeholders are also useful for utility classes that you want to extend, but don't want to export. 
+
+e.g. 
+```
+%clearfix {
+    &::after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+```
+
+Then use `@extend clearfix` in any rule set where I want to clear floats (instead of cluttering up my HTML).
+
+Placeholders share nested rules with other selectors. 
+e.g. 
+```
+%btn {
+    color: $white;
+    display: inline-block;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 0.75em 1.5em;
+    border-radius: 0.35em;
+    &:hover {
+        color: $white;
+        opacity: 0.8;
+    }
+    &:active {
+        opacity: initial;
+    }
+}
+```
+
+Using opacity and extending is a great way to handle hover and active states for all links and buttons. 
+
+It's a best practice to not over-extend. Don't simulataneously extend multiple selectors. 
+e.g. 
+```
+// DON'T DO THIS
+.btn, .icn, .card, .table {
+    @extends .btn;
+}
+```
+
