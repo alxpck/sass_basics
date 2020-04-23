@@ -257,3 +257,9 @@ e.g.
 }
 ```
 
+# Comments
+Single line comments in scss use `//`.
+Single line comments are not exported into css. 
+
+Multi-line comments are wrapped in `/*` and `*/` (just like CSS). 
+Multi-line comments are exported to css. 
