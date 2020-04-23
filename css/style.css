@@ -1,3 +1,5 @@
+/* VARIABLES ------------------------------------------------- */
+/* MIXINS ------------------------------------------------- */
 /* BASE ------------------------------------------------- */
 * {
   box-sizing: border-box;
@@ -63,6 +65,12 @@ footer {
   height: 100px;
   background-color: #eee;
   margin-top: 3.5em;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  transform: skewY(-2deg);
 }
 
 /* CONTAINERS ---------------------------------------------- */
@@ -153,7 +161,7 @@ footer {
   .main-content {
     width: 90%;
     max-width: 1000px;
-    margin: 0 auto;
+    margin-left: auto;
   }
 }
 @media (min-width: 992px) {

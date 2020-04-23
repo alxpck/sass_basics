@@ -11,7 +11,7 @@ Define the variable at the top of the scss file, and then reference it whenever 
 What's the scope of a scss variable?
 
 # Nested Selectors
-Declare a new rule within an existing rule, to scope the new rule to the existing rule. 
+Declare a new rule within an existing rule, to scope the new rule to the existing rule.
 
 e.g. 
 ``` 
@@ -78,3 +78,80 @@ p {
 }
 ```
 
+
+# Mixins
+A reusable chunk of CSS rules that can be included in other sections. 
+
+Define them. 
+e.g
+```
+@mixin skewed {
+    content: '',
+    display: block;
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    transform: skewY(-2deg);
+}
+```
+
+Include them. 
+e.g.
+```
+footer {
+    padding: 2em;
+    background-color: $color-shade;
+    @include skewed;
+}
+```
+
+You must define a mixin before it's included. 
+
+# Mixins + Nested Selectors + Pseudoelements
+You can pass blocks of styles including pseudoelements. 
+```
+@mixin skewed {
+    &::after {
+        content: '',
+        display: block;
+        width: 100%;
+        height: 50px;
+        position: absolute;
+        transform: skewY(-2deg);    
+    }
+}
+```
+
+You can also pass in custom content. 
+```
+@mixin skewed {
+    position: relative;
+    &::after {
+        content: '',
+        display: block;
+        width: 100%;
+        height: 50px;
+        position: absolute;
+        transform: skewY(-2deg);
+        @content;    
+    }
+}
+```
+
+Define the content in the mixin. Then pass it in during the import by passing the content into the curly braces.
+e.g. 
+```
+header {
+    background-color: $color-primary;
+    p {
+        color: $color-accent;
+        font-size: 1.25em;
+        margin: 0;
+    }
+    @include skewed {
+        // content goes here...
+        background-color: $color-shade;
+        bottom: -25px;
+    }
+}
+```
